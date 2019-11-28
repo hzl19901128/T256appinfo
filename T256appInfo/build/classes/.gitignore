@@ -3,3 +3,5 @@
 /log4j.properties
 /mybatis-config.xml
 /springmvc-servlet.xml
+/cn/
+/mapper/

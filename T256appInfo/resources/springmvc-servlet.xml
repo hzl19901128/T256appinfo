@@ -38,11 +38,11 @@
     </mvc:annotation-driven>
     
     <!-- 开启组件扫描 -->
-    <context:component-scan base-package="cn.bdqn"/>
+    <context:component-scan base-package="cn.sq.appinfo"/>
     
     <!-- 配置视图解析器，把controller返回的字符串，映射到指定的jsp -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-       <property name="prefix" value="/WEB-INF/pages/"/>
+       <property name="prefix" value="/WEB-INF/jsp/"/>
        <property name="suffix" value=".jsp"/>
     </bean>
     

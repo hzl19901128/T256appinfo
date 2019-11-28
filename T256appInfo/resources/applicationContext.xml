@@ -47,7 +47,7 @@
 	<!-- MapperScannerConfigurer自动扫描将Mapper接口生成代理注入到spring -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<!-- basePackage指定扫描的包，在此包下的映射器都会被搜索到，可以指定多个包 -->
-		<property name="basePackage" value="cn.bdqn.dao" />
+		<property name="basePackage" value="cn.sq.appinfo.dao" />
 	</bean>
 
 	<!-- 声明式事务处理配置 -->

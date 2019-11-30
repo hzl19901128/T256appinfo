@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.sq.appinfo.dao.AppCategoryDao">
+   <!-- 根据父级id查询对应的分类 -->
+   <select id="getAppCategory" resultType="AppCategory">
+       <!-- 一级菜单 parentId is null -->
+       <!-- 二级菜单，三级菜单 parentId = ? -->
+       select * from app_category where 
+       <if test="parentId != null">
+         parentId = #{parentId}
+       </if>
+       <if test="parentId == null">
+         parentId is null
+       </if>
+   </select>
+</mapper>

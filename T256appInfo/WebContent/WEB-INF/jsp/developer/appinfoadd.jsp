@@ -19,7 +19,7 @@
          </div>
        </div> -->
            <div class="clearfix"></div>
-        <form class="form-horizontal form-label-left" action="appinfoaddsave" method="post" enctype="multipart/form-data">
+        <form class="form-horizontal form-label-left" action="appAdd.do" method="post" enctype="multipart/form-data">
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">软件名称 <span class="required">*</span>
             </label>
@@ -34,7 +34,7 @@
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input id="APKName" class="form-control col-md-7 col-xs-12" 
-              	data-validate-length-range="20" data-validate-words="1" name="APKName"   required="required"
+              	data-validate-length-range="20" data-validate-words="1" name="APKName"
               	placeholder="请输入APK名称" type="text">
             </div>
           </div>
@@ -44,7 +44,7 @@
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input id="supportROM" class="form-control col-md-7 col-xs-12" name="supportROM" 
-              	data-validate-length-range="20" data-validate-words="1"   required="required"
+              	data-validate-length-range="20" data-validate-words="1" 
               	placeholder="请输入支持的ROM" type="text">
             </div>
           </div>
@@ -53,7 +53,7 @@
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
               <input id="interfaceLanguage" class="form-control col-md-7 col-xs-12" 
-              data-validate-length-range="20" data-validate-words="1" name="interfaceLanguage"   required="required"
+              data-validate-length-range="20" data-validate-words="1" name="interfaceLanguage"  
               placeholder="请输入软件支持的界面语言" type="text">
             </div>
           </div>
@@ -61,7 +61,7 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">软件大小 <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input type="number" id="softwareSize" name="softwareSize"   required="required" onkeyup="value=value.replace(/[^\d]/g,'')"
+              <input type="number" id="softwareSize" name="softwareSize"  onkeyup="value=value.replace(/[^\d]/g,'')"
               data-validate-minmax="10,500"  placeholder="请输入软件大小，单位为Mb" class="form-control col-md-7 col-xs-12">
             </div>
           </div>
@@ -70,7 +70,7 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">下载次数 <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <input type="number" id="downloads" name="downloads"   required="required"
+              <input type="number" id="downloads" name="downloads"  
               data-validate-minmax="10,500"  placeholder="请输入下载次数" class="form-control col-md-7 col-xs-12">
             </div>
           </div>
@@ -78,7 +78,7 @@
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="select">所属平台 <span class="required">*</span></label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <select name="flatformId" id="flatformId" class="form-control"   required="required"></select>
+              <select name="flatformId" id="flatformId" class="form-control" ></select>
             </div>
           </div>
           
@@ -113,7 +113,7 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="textarea">应用简介 <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <textarea id="appInfo" name="appInfo"     required="required"
+              <textarea id="appInfo" name="appInfo"   
               placeholder="请输入本软件的相关信息，本信息作为软件的详细信息进行软件的介绍。" class="form-control col-md-7 col-xs-12"></textarea>
             </div>
           </div>
@@ -121,7 +121,7 @@
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">LOGO图片 <span class="required">*</span>
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
-            <input type="file" class="form-control col-md-7 col-xs-12" name="a_logoPicPath"  required="required" id="a_logoPicPath"/>
+            <input type="file" class="form-control col-md-7 col-xs-12" name="mf"  required="required" id="a_logoPicPath"/>
             ${fileUploadError }
             </div>
           </div>

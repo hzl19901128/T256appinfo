@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.sq.appinfo.dao.AppInfoDao">
+	<!-- 查询分页数据 -->
+	<select id="getByLimit" resultType="AppInfo">
+		select * from app_info ai 
+		left join app_version av on ai.versionId=av.id 
+		left join (select valueId,valueName as statusName from data_dictionary 
+		where typeCode='APP_STATUS') st on st.valueId=ai.status 
+		left join (select valueId,valueName as flatformName from data_dictionary 
+		where typeCode='APP_FLATFORM') fl on fl.valueId=ai. flatformId
+		left join (select id,categoryName as categoryLevel1Name from app_category 
+		where parentId is null) oc on ai.categoryLevel1=oc.id 
+		left join (select id,categoryName as categoryLevel2Name from app_category 
+		where parentId &lt; 3) tc on ai.categoryLevel2=tc.id 
+		left join (select id,categoryName as categoryLevel3Name from app_category 
+		where parentId &gt; 2) sc on ai.categoryLevel3=sc.id 
+		<where>
+			<if test="aname != null and aname != ''">
+				and softwareName like concat('%',#{aname},'%')
+			</if>
+			<if test="astate != null">
+				and status = #{astate}
+			</if>
+			<if test="afrom != null">
+				and flatformId = #{afrom}
+			</if>
+			<if test="atype1 != null">
+				and categoryLevel1 = #{atype1}
+			</if>
+			<if test="atype2 != null">
+				and categoryLevel2 = #{atype2}
+			</if>
+			<if test="atype3 != null">
+				and categoryLevel3 = #{atype3}
+			</if>
+		</where>
+		limit #{page.startIndex},#{page.pageSize}
+	</select>
+
+	<!-- 查询总记录数 -->
+	<select id="getCounts" resultType="int">
+		select count(*) from app_info 
+		<where>
+			<if test="aname != null and aname != ''">
+				and softwareName like concat('%',#{aname},'%')
+			</if>
+			<if test="astate != null">
+				and status = #{astate}
+			</if>
+			<if test="afrom != null">
+				and flatformId = #{afrom}
+			</if>
+			<if test="atype1 != null">
+				and categoryLevel1 = #{atype1}
+			</if>
+			<if test="atype2 != null">
+				and categoryLevel2 = #{atype2}
+			</if>
+			<if test="atype3 != null">
+				and categoryLevel3 = #{atype3}
+			</if>
+		</where>
+	</select>
+</mapper>
